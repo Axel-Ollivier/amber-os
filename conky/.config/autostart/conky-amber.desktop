@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Conky Amber HUD
+Comment=amber system HUD
+Exec=sh -c 'python3 "$HOME/.dotfiles/conky/conky-monitor-watch.py"'
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Delay=4
+NoDisplay=false
+Terminal=false
