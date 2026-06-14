@@ -1,4 +1,4 @@
-/* Ghostty — Amber titlebar, via gtk-custom-css.
+/* Ghostty - Amber titlebar, via gtk-custom-css.
    Verified gotchas (Ghostty 1.3.1 / libadwaita 1.5):
    • NO !important (GTK4 rejects it: "Junk at end of value").
    • DO NOT enable window-titlebar-background/foreground (custom bar is not themable).
@@ -85,7 +85,7 @@ window headerbar windowcontrols button.close:hover {
     border-radius: 0;
 }
 
-/* ── Tabs (libadwaita AdwTabBar): amber, flat, active underline ── */
+/* Tabs (libadwaita AdwTabBar): amber, flat, active underline */
 tabbar, tabbar .box, tabbar tabbox, headerbar tabbar {
     background-color: #16110D;
     border-bottom: 1px solid #FFB454;
@@ -116,7 +116,7 @@ tabbar tab button.close, tabbar tab button, tab button.close {
 tabbar tab button.close:hover { background-color: rgba(255, 180, 84, 0.16); }
 tabbar tab:not(:checked) + tab:not(:checked) { border-left: 1px solid #33271A; }
 
-/* ── Ghostty menus / popovers (hamburger ⋮, right-click): flat + amber + border ── */
+/* Ghostty menus / popovers (hamburger ⋮, right-click): flat + amber + border */
 popover, popover.background, popover > contents, popover > arrow {
     background-color: #16110D;
     background-image: none;

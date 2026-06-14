@@ -16,7 +16,7 @@ cp -r "$BASE" "$TH"
 # index.theme: name + standalone set (now inherits only from hicolor)
 sed -i 's/^Name=.*/Name=Amber-Icons/; s/^Inherits=.*/Inherits=hicolor/' "$TH/index.theme"
 sed -i 's/^Comment=.*/Comment=Papirus recolored to amber monochrome/' "$TH/index.theme" 2>/dev/null || true
-# Register apps/scalable (custom icons) in the index — otherwise GTK won't see them
+# Register apps/scalable (custom icons) in the index - otherwise GTK won't see them
 # and Flatpak apps fall back to their colored icon (hicolor).
 if ! grep -q '^\[apps/scalable\]' "$TH/index.theme" 2>/dev/null; then
   sed -i 's|^Directories=|Directories=apps/scalable,|' "$TH/index.theme"
@@ -37,7 +37,7 @@ find "$TH" -name '*.svg' -type f -print0 \
   | xargs -0 -n 400 -P "$(nproc)" python3 "$DIR/icon-amberize.py" >/dev/null
 echo "  recolor done."
 
-# ── Overlay: hicolor apps/categories icons missing from Papirus ──
+# Overlay: hicolor apps/categories icons missing from Papirus
 # (otherwise Settings modules, e.g. gnome-online-accounts-gtk, fall back to hicolor = colored).
 echo "→ Overlay missing hicolor icons (apps/categories)…"
 OVERLAY=()
@@ -51,7 +51,7 @@ done < <(find /usr/share/icons/hicolor \( -path '*/apps/*.svg' -o -path '*/categ
 echo "  overlay: ${#OVERLAY[@]} icon(s)"
 [ ${#OVERLAY[@]} -gt 0 ] && python3 "$DIR/icon-amberize.py" "${OVERLAY[@]}" >/dev/null
 
-# ── Custom amber launchers (pinned apps), over the recolored fork ──
+# Custom amber launchers (pinned apps), over the recolored fork
 mkdir -p "$TH/apps/scalable"
 SIB="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons"
 get(){ if curl -fsSL "$SIB/$1.svg" -o /tmp/_si.svg 2>/dev/null && [ -s /tmp/_si.svg ]; then

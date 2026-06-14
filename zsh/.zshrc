@@ -11,7 +11,7 @@ zstyle ':completion:*' list-colors "di=38;5;180:ln=38;5;215"
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#C98A52"
 
-# fzf — Amber colors
+# fzf - Amber colors
 export FZF_DEFAULT_OPTS="--color=bg+:#1f1813,fg:#E8D5BC,fg+:#FFB454,hl:#E8743B,hl+:#FFB454,prompt:#CC785C,pointer:#FFB454,info:#C98A52,border:#5a4632"
 [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
 [ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh

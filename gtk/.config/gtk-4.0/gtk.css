@@ -1,4 +1,4 @@
-/* === Amber — GTK4 / libadwaita window headers (apps other than Ghostty) === */
+/* === Amber - GTK4 / libadwaita window headers (apps other than Ghostty) === */
 /* Verified recipe (see ghostty/amber-gtk.css): no !important; background-color: transparent;
    .close disc lives on a child → clear button.close > * and image; frame = window.csd;
    underlying background + header backdrop forced to #16110D (else gray line + dimming). */

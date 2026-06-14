@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Safety net — restore Cinnamon if the Amber customization breaks something.
+# Safety net - restore Cinnamon if the Amber customization breaks something.
 # Usage: ./rollback.sh [snapshot.dconf]   (default: snapshots/cinnamon-baseline.dconf)
 set -euo pipefail
 DIR="$(cd "$(dirname "$0")" && pwd)"

@@ -21,7 +21,7 @@ cp -rL "$SRC" "$DEST"
 mapfile -d '' FILES < <(find "$DEST" -type f \
     \( -name '*.css' -o -name '*.xml' -o -name '*.svg' -o -name 'gtkrc' -o -name 'themerc' \) -print0)
 
-# ── 1) sand accent -> amber (original swap + leftovers: c8ac69 accent, cdad8e/cbaa8a checkboxes) ──
+# 1) sand accent -> amber (original swap + leftovers: c8ac69 accent, cdad8e/cbaa8a checkboxes)
 sed -i -E '
   s/c5a07c/FFB454/Ig;
   s/197, ?160, ?124/255, 180, 84/g;
@@ -30,7 +30,7 @@ sed -i -E '
   s/cbaa8a/FFC97A/Ig;
 ' "${FILES[@]}"
 
-# ── 2) warm scale: every neutral/cold gray -> warm amber step (algorithmic) ──
+# 2) warm scale: every neutral/cold gray -> warm amber step (algorithmic)
 #   warmize.py: luminance-equivalent, preserves saturated colors + light text, idempotent.
 #   target: the 3 CSS files + the Cinnamon chrome SVGs (menus, notifications, switch, checkbox).
 WARM_TARGETS=("$DEST/cinnamon/cinnamon.css")
@@ -41,14 +41,14 @@ while IFS= read -r -d '' svg; do WARM_TARGETS+=("$svg"); done \
   < <(find "$DEST/cinnamon/dark-assets" "$DEST/cinnamon/common-assets" -name '*.svg' -print0 2>/dev/null)
 python3 "$DIR/warmize.py" "${WARM_TARGETS[@]}"
 
-# ── 2b) shell text: light -> amber (warmize protects light text; here we want it amber) ──
+# 2b) shell text: light -> amber (warmize protects light text; here we want it amber)
 sed -i -E '
   s/#e1e1e1/#FFB454/Ig;
   s/#d3d3d3/#C98A52/Ig;
   s/rgba\(225, ?225, ?225,/rgba(255, 180, 84,/g;
 ' "$DEST/cinnamon/cinnamon.css"
 
-# ── 3) GTK: warm semantic roles (the role takes precedence over the luminance mapping) ──
+# 3) GTK: warm semantic roles (the role takes precedence over the luminance mapping)
 for gtkcss in "$DEST/gtk-3.0/gtk.css" "$DEST/gtk-3.0/gtk-dark.css" "$DEST/gtk-4.0/gtk.css" "$DEST/gtk-4.0/gtk-dark.css"; do
   [ -f "$gtkcss" ] || continue
   sed -i -E '
@@ -77,7 +77,7 @@ for gtkcss in "$DEST/gtk-3.0/gtk.css" "$DEST/gtk-3.0/gtk-dark.css" "$DEST/gtk-4.
   cat "$DIR/amber-gtk-overrides.css" >> "$gtkcss"
 done
 
-# ── 4) Cinnamon overrides (panel / statusline / tooltips) ──
+# 4) Cinnamon overrides (panel / statusline / tooltips)
 printf '\n' >> "$DEST/cinnamon/cinnamon.css"
 cat "$DIR/amber-overrides.css" >> "$DEST/cinnamon/cinnamon.css"
 

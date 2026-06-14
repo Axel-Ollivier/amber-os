@@ -13,7 +13,7 @@ CrtApplet.prototype = {
         Applet.TextIconApplet.prototype._init.call(this, orientation, panelHeight, instanceId);
         this.pidfile = "/tmp/crt-overlay.pid";
         this.script = GLib.get_home_dir() + "/.dotfiles/crt/crt-toggle.sh";
-        this.set_applet_tooltip("CRT overlay — click to toggle on / off");
+        this.set_applet_tooltip("CRT overlay - click to toggle on / off");
         this._update();
         this._loop = GLib.timeout_add_seconds(GLib.PRIORITY_DEFAULT, 3, () => {
             this._update();

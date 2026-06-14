@@ -1,5 +1,5 @@
 # === Amber Terminal ===
-# Ghostty shell (independent of the system shell — guarantees zsh here)
+# Ghostty shell (independent of the system shell - guarantees zsh here)
 command = zsh
 
 font-family = "JetBrainsMono Nerd Font"
@@ -13,7 +13,7 @@ cursor-text = #16110D
 selection-background = #3a2f25
 selection-foreground = #FFD089
 
-# ANSI 0-7 / bright 8-15 — Amber palette
+# ANSI 0-7 / bright 8-15 - Amber palette
 palette = 0=#16110D
 palette = 1=#E8743B
 palette = 2=#8FB36B
@@ -37,8 +37,8 @@ window-padding-y = 12
 window-decoration = true
 mouse-hide-while-typing = true
 
-# Titlebar — NATIVE Ghostty options (it does NOT use ~/.config/gtk-4.0/gtk.css)
-# Titlebar — themed via gtk-custom-css (amber-gtk.css).
+# Titlebar - NATIVE Ghostty options (it does NOT use ~/.config/gtk-4.0/gtk.css)
+# Titlebar - themed via gtk-custom-css (amber-gtk.css).
 # DO NOT enable window-titlebar-background/foreground: it switches Ghostty to a custom
 # bar that CSS cannot theme (headerbar/windowcontrols then stop matching).
 gtk-toolbar-style = flat
