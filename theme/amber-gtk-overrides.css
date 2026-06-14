@@ -1,0 +1,137 @@
+/* === Amber — minimalist flat background + amber menus (appended to end of GTK3/4 gtk.css) === */
+/* a single background everywhere: #16110D. subtle (and dark) lifts at strategic spots. */
+
+window, .background, .view, textview, textview text,
+treeview.view, list, row, scrolledwindow, viewport,
+headerbar, .titlebar, .header-bar, toolbar, .toolbar,
+.sidebar, placessidebar, .sidebar-pane, stacksidebar, stacksidebar list,
+notebook, notebook header, notebook header tabs, paned,
+actionbar, searchbar, infobar, statusbar,
+.nemo-window, .nemo-window .toolbar, .nemo-window .sidebar {
+  background-color: #16110D;
+  background-image: none;
+}
+
+/* bar buttons (breadcrumb / tools): flat, no light shade */
+headerbar button, .titlebar button, toolbar button, .toolbar button,
+.path-bar button, .linked > button, .nemo-window .toolbar button {
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+}
+headerbar button:hover, toolbar button:hover, .toolbar button:hover,
+.path-bar button:hover, .path-bar button:checked,
+headerbar button:checked, headerbar button:active, toolbar button:active {
+  background-color: #1F1813;   /* subtle lift, stays dark */
+  background-image: none;
+}
+
+/* input fields: dark lift + discreet amber border (affordance) */
+entry, .entry, spinbutton, spinbutton entry, textview.frame {
+  background-color: #1F1813;
+  background-image: none;
+  border: 1px solid #33271A;
+}
+entry:focus, .entry:focus, spinbutton:focus-within {
+  border-color: #FFB454;
+}
+
+/* menus / popovers: flat background + amber border + amber text */
+menu, .menu, .context-menu, popover, popover.background, popover > contents,
+popover > arrow, .csd popover.background, combobox window menu, combobox window {
+  background-color: #16110D;
+  background-image: none;
+}
+menu, .menu, .context-menu, popover.background, popover > contents {
+  border: 1px solid #FFB454;
+}
+menuitem, modelbutton.flat {
+  background-color: transparent;
+  background-image: none;
+}
+menuitem label, menu label, .menuitem label,
+modelbutton.flat label, menuitem, popover.menu modelbutton label {
+  color: #FFB454;
+}
+menuitem:hover, menuitem:focus, modelbutton.flat:hover {
+  background-color: #1F1813;
+}
+menuitem:hover label, menuitem:focus label, modelbutton.flat:hover label {
+  color: #FFB454;
+}
+menuitem:disabled, menuitem:disabled label,
+modelbutton.flat:disabled label, separator {
+  color: #8A6E4C;
+}
+
+/* === internal amber borders (terminal-frame structure, dimmed vs the outer frame) === */
+menubar, .menubar {
+  border-bottom: 1px solid #FFB454;
+}
+headerbar, .titlebar, toolbar, .toolbar, .nemo-window .toolbar, .primary-toolbar {
+  border-bottom: 1px solid #FFB454;
+}
+statusbar, .statusbar, .nemo-window statusbar {
+  border-top: 1px solid #FFB454;
+}
+paned > separator, paned separator, separator.vertical {
+  background-color: #FFB454;
+  background-image: none;
+  min-width: 1px;
+  min-height: 1px;
+}
+.sidebar, placessidebar, .sidebar-pane {
+  border-right: 1px solid #FFB454;
+}
+notebook header {
+  border-bottom: 1px solid #FFB454;
+}
+treeview.view header button, columnview header button {
+  border-bottom: 1px solid #FFB454;
+}
+
+/* === tabs: notebook (GTK3) + AdwTabBar (GTK4/libadwaita) in amber === */
+notebook > header tab, tabbar tab {
+  background-color: transparent;
+  background-image: none;
+  color: #C98A52;                         /* inactive: dimmed amber */
+  border-radius: 0;
+}
+notebook > header tab:checked, tabbar tab:checked {
+  background-color: #1F1813;              /* active: dark lift */
+  color: #FFB454;
+  box-shadow: inset 0 -2px 0 #FFB454;     /* amber underline */
+}
+notebook > header tab:hover, tabbar tab:hover { color: #FFB454; }
+notebook > header tab label, tabbar tab label { color: inherit; }
+notebook > header tab button, tabbar tab button.close {
+  color: #FFB454;
+  background-color: transparent;
+}
+notebook > header tab button:hover, tabbar tab button.close:hover {
+  background-color: rgba(255, 180, 84, 0.16);
+}
+
+/* === symbolic icons in amber (inherit fg; explicit for stubborn cases) === */
+image, .image, button image, menuitem image, headerbar image,
+toolbar image, .toolbar image, .sidebar image, stackswitcher button image,
+treeview.view image, cellview, spinner {
+  color: #FFB454;
+  -gtk-icon-palette: success #FFB454, warning #C98A52, error #E8743B;
+}
+
+/* === IconView (cinnamon-settings grid) + headers: amber text === */
+iconview, iconview.view, iconview text, iconview *,
+.cs-category-view, .cs-category-view label, .cs-category-view text {
+  color: #FFB454;
+}
+iconview:selected, iconview text:selected { color: #16110D; }
+
+/* === text/icons on AMBER background (selection, accent buttons): dark for contrast === */
+*:selected, *:selected label, *:selected image,
+row:selected, row:selected label, row:selected image,
+*:checked > label, flowboxchild:selected label,
+button.suggested-action, button.suggested-action label,
+button.destructive-action, button.destructive-action label {
+  color: #16110D;
+}

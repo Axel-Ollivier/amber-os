@@ -1,0 +1,7 @@
+{
+    "uuid": "statusline@amber",
+    "name": "Amber Statusline",
+    "description": "A terminal-style ❯ user prompt for the panel.",
+    "version": "1.0",
+    "max-instances": "1"
+}

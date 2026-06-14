@@ -1,0 +1,63 @@
+/* === Amber — window headers (GTK CSD) === */
+
+/* Titlebar: brown background, mono amber text, thin, square */
+headerbar,
+.titlebar,
+window > .titlebar,
+headerbar.default-decoration {
+    background-color: #16110D;
+    background-image: none;
+    color: #FFB454;
+    border-radius: 0;
+    box-shadow: none;
+    min-height: 30px;
+    padding: 2px 4px;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+}
+
+headerbar .title,
+.titlebar .title,
+headerbar label {
+    color: #FFB454;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-weight: normal;
+}
+headerbar .subtitle,
+.titlebar .subtitle { color: #C98A52; }
+
+/* Header buttons (close/min/max + actions) in amber */
+headerbar button,
+.titlebar button,
+headerbar button.titlebutton,
+.titlebar button.titlebutton {
+    color: #FFB454;
+    background-color: transparent;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+    text-shadow: none;
+    min-height: 24px;
+    min-width: 24px;
+}
+headerbar button:hover,
+.titlebar button:hover,
+headerbar button.titlebutton:hover {
+    background-color: rgba(255, 180, 84, 0.18);
+    color: #FFD089;
+}
+
+/* Window border: 1px amber, square (box-shadow = crisp line) */
+decoration {
+    border-radius: 0;
+    box-shadow: 0 0 0 1px #FFB454;
+}
+decoration:backdrop {
+    border-radius: 0;
+    box-shadow: 0 0 0 1px #6b573f;
+}
+.maximized decoration,
+.fullscreen decoration,
+.tiled decoration {
+    border-radius: 0;
+    box-shadow: none;
+}

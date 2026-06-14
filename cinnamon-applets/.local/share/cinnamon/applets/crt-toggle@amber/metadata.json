@@ -1,0 +1,7 @@
+{
+    "uuid": "crt-toggle@amber",
+    "name": "CRT Toggle",
+    "description": "Toggle the global CRT overlay (scanlines + amber tint).",
+    "version": "1.0",
+    "max-instances": "1"
+}

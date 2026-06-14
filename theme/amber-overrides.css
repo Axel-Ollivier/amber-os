@@ -1,0 +1,105 @@
+/* === Amber — panel / statusline overrides (appended to Mint-Y-Dark-Sand) === */
+#panel {
+    background-color: #16110D !important;
+    border-top: 1px solid #FFB454 !important;
+    box-shadow: none !important;
+}
+.applet-label {
+    color: #FFB454 !important;
+    font-family: "JetBrainsMono Nerd Font", "JetBrainsMono NF", monospace !important;
+}
+.applet-icon, .system-status-icon, .popup-menu-icon { color: #FFB454 !important; }
+#panel StIcon { color: #FFB454 !important; }
+/* amber hover/focus/active highlight (instead of gray) */
+.grouped-window-list-item-box:hover, .grouped-window-list-item-box:focus,
+.window-list-item-box:hover, .window-list-item-box:groupFocus,
+.applet-box:hover, .panel-button:hover {
+    background-color: rgba(255,180,84,0.18) !important;
+    color: #FFB454 !important;
+}
+.grouped-window-list-item-box:active, .grouped-window-list-item-box:checked,
+.window-list-item-box:active, .window-list-item-box:checked, .window-list-item-box:focus {
+    background-color: rgba(255,180,84,0.10) !important;
+    border-color: #FFB454 !important;
+}
+/* amber tooltips (brown background, mono amber text, square amber border) */
+#Tooltip, .tooltip, .tooltip-label {
+    background-color: #1f1813 !important;
+    color: #FFB454 !important;
+    border: 1px solid #FFB454 !important;
+    border-radius: 0 !important;
+    font-family: "JetBrainsMono Nerd Font", monospace !important;
+    padding: 4px 8px !important;
+}
+/* applet label on hover: amber (not white) — beats .applet-box:hover .applet-label via #panel */
+#panel .applet-label:hover, #panel .applet-label:checked,
+#panel .applet-box:hover .applet-label, #panel .applet-box:checked .applet-label,
+#panel .panel-button:hover .applet-label {
+    color: #FFB454 !important;
+    text-shadow: none !important;
+}
+.amber-caret { color: #8FB36B !important; font-family: "JetBrainsMono Nerd Font", monospace !important; font-weight: normal !important; }
+.amber-user  { color: #FFB454 !important; font-family: "JetBrainsMono Nerd Font", monospace !important; font-weight: normal !important; }
+.amber-path  { color: #C98A52 !important; font-family: "JetBrainsMono Nerd Font", monospace !important; font-weight: normal !important; }
+
+/* === Cinnamon menus / popups: flat #16110D background + amber text, dark lift on hover === */
+.popup-menu-content, .popup-menu .popup-menu-content, .menu,
+.popup-sub-menu, .popup-combo-menu {
+    background-color: #16110D !important;
+    border: 1px solid #FFB454 !important;
+}
+.popup-menu-item { color: #FFB454 !important; }
+.popup-menu-item:hover, .popup-menu-item:focus, .popup-menu-item:active, .popup-menu-item.selected {
+    background-color: #1F1813 !important;
+    color: #FFB454 !important;
+}
+.popup-menu-item:insensitive, .popup-inactive-menu-item { color: #8A6E4C !important; }
+.popup-separator-menu-item .popup-separator-menu-item-separator,
+.popup-separator-menu-item StBoxLayout { background-color: #FFB454 !important; }
+
+/* === applet menus (network / bluetooth / sound / calendar): amber everywhere === */
+.popup-menu StLabel, .popup-subtitle-menu-item, .popup-status-menu-item,
+.popup-device-menu-item, .popup-device-menu-item StLabel,
+.nm-menu-item-icons, .popup-slider-menu-item StLabel, .toggle-switch-label {
+    color: #FFB454 !important;
+}
+.popup-inactive-menu-item StLabel, .popup-subtitle-menu-item:insensitive { color: #8A6E4C !important; }
+/* sliders (volume / brightness): amber handle + active bar, dark trough */
+.popup-slider-menu-item, .slider { color: #FFB454 !important; height: 1em; }
+/* calendar */
+.calendar { color: #FFB454 !important; }
+.calendar StLabel, .calendar-events-date-label, .calendar-events-event-container StLabel { color: #FFB454 !important; }
+.calendar-day-base { color: #FFB454 !important; }
+.calendar-day-base:hover, .calendar-day-base:focus { background-color: #1F1813 !important; color: #FFB454 !important; }
+.calendar-today { color: #16110D !important; background-color: #FFB454 !important; border: 1px solid #FFB454 !important; }
+.calendar-day-base:active, .calendar-day-base:selected { background-color: #FFB454 !important; color: #16110D !important; }
+.calendar-week-number { color: #8A6E4C !important; }
+.calendar-other-month-day { color: #8A6E4C !important; }
+
+/* === Alt+Tab: selected item highlight (the warmizer had flattened the contrast) === */
+.switcher-list .item-box:selected,
+.switcher-list .item-box:outlined,
+.switcher-list .item-box:hover {
+    background-color: #3A2C1C !important;
+    border: 2px solid #FFB454 !important;
+    border-radius: 0 !important;
+    color: #FFB454 !important;
+}
+.switcher-list .item-box { border: 2px solid transparent !important; }
+/* window preview / thumbnail in Alt+Tab: a SINGLE outer amber border.
+   = 1px amber border + removal of the gray drop shadow (the "extra border"). */
+.switcher-list .thumbnail {
+    border: 1px solid #FFB454 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+.switcher-list .thumbnail-box {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+/* workspace switcher OSD: same logic */
+.workspace-switcher .ws-box:selected, .workspace-switcher-box .ws-switcher:selected {
+    border: 2px solid #FFB454 !important;
+}
