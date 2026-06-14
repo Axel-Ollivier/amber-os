@@ -1,0 +1,32 @@
+add_newline = true
+format = "$directory$git_branch$git_status$cmd_duration$character"
+
+palette = "amber"
+
+[palettes.amber]
+amber = "#FFB454"
+orange = "#E8743B"
+clay = "#CC785C"
+green = "#8FB36B"
+dim = "#C98A52"
+
+[character]
+success_symbol = "[❯](amber)"
+error_symbol = "[❯](orange)"
+
+[directory]
+style = "clay"
+truncation_length = 3
+truncate_to_repo = true
+
+[git_branch]
+symbol = " "
+style = "dim"
+
+[git_status]
+style = "orange"
+
+[cmd_duration]
+min_time = 500
+style = "dim"
+format = "[ $duration]($style) "

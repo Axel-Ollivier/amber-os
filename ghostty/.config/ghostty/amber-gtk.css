@@ -1,0 +1,134 @@
+/* Ghostty — Amber titlebar, via gtk-custom-css.
+   Verified gotchas (Ghostty 1.3.1 / libadwaita 1.5):
+   • NO !important (GTK4 rejects it: "Junk at end of value").
+   • DO NOT enable window-titlebar-background/foreground (custom bar is not themable).
+   • `background: none` does not clear background-color → `background-color: transparent`.
+   • .close disc lives on a child → clear button.close > * and image.
+   • frame = `window.csd` node (border via box-shadow).
+   • underlying background (window/.background/decoration) is gray by default → force it to #16110D
+     or it bleeds out as a thin line under the border.
+   • backdrop: libadwaita dims the background → re-force it with high specificity. */
+
+/* Frame: square corners + 1px amber border + #16110D background (avoids gray edge line) */
+window, window.csd, .background, decoration {
+    border-radius: 0;
+    background-color: #16110D;
+}
+window.csd { box-shadow: 0 0 0 1px #FFB454; }
+window.csd:backdrop {
+    box-shadow: 0 0 0 1px #6b573f;
+    background-color: #16110D;
+}
+.background:backdrop, decoration:backdrop { background-color: #16110D; }
+
+/* Header: dark background + mono amber title */
+headerbar {
+    background-color: #16110D;
+    background-image: none;
+    color: #FFB454;
+    box-shadow: none;
+    border: none;
+    border-bottom: 1px solid #FFB454;   /* amber header/terminal separator (like other apps) */
+    border-radius: 0;
+    min-height: 28px;
+}
+headerbar .title, headerbar label, headerbar .subtitle {
+    color: #FFB454;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-weight: normal;
+}
+
+/* backdrop: header STRICTLY identical (neither background nor text change) */
+window headerbar:backdrop,
+window.csd:backdrop headerbar,
+window headerbar:backdrop > * {
+    background-color: #16110D;
+    box-shadow: none;
+}
+window headerbar:backdrop .title,
+window headerbar:backdrop label,
+window headerbar:backdrop .subtitle {
+    color: #FFB454;
+}
+
+/* min / max / close buttons: flat, amber, no rounding */
+windowcontrols button,
+windowcontrols button.minimize,
+windowcontrols button.maximize,
+windowcontrols button.close {
+    background-color: transparent;
+    background-image: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    color: #FFB454;
+    min-width: 22px;
+    min-height: 22px;
+    padding: 2px;
+}
+windowcontrols button image { color: #FFB454; }
+
+/* close: clear background + children, force the cross to amber */
+window headerbar windowcontrols button.close,
+window headerbar windowcontrols button.close > *,
+window headerbar windowcontrols button.close image {
+    background-color: transparent;
+    background-image: none;
+    box-shadow: none;
+    border-radius: 0;
+    color: #FFB454;
+}
+
+windowcontrols button:hover,
+window headerbar windowcontrols button.close:hover {
+    background-color: rgba(255, 180, 84, 0.16);
+    border-radius: 0;
+}
+
+/* ── Tabs (libadwaita AdwTabBar): amber, flat, active underline ── */
+tabbar, tabbar .box, tabbar tabbox, headerbar tabbar {
+    background-color: #16110D;
+    border-bottom: 1px solid #FFB454;
+}
+tabbar tab {
+    background-color: transparent;
+    background-image: none;
+    color: #C98A52;                       /* inactive: dimmed amber */
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    min-height: 26px;
+}
+tabbar tab:checked {
+    background-color: #1F1813;             /* active: dark lift */
+    color: #FFB454;
+    box-shadow: inset 0 -2px 0 #FFB454;   /* amber underline */
+}
+tabbar tab:hover { color: #FFB454; background-color: #1F1813; }
+tabbar tab label, tabbar tab .title { color: inherit; font-family: "JetBrainsMono Nerd Font", monospace; }
+tabbar tab button.close, tabbar tab button, tab button.close {
+    color: #FFB454;
+    background-color: transparent;
+    background-image: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+tabbar tab button.close:hover { background-color: rgba(255, 180, 84, 0.16); }
+tabbar tab:not(:checked) + tab:not(:checked) { border-left: 1px solid #33271A; }
+
+/* ── Ghostty menus / popovers (hamburger ⋮, right-click): flat + amber + border ── */
+popover, popover.background, popover > contents, popover > arrow {
+    background-color: #16110D;
+    background-image: none;
+}
+popover > contents { border: 1px solid #FFB454; }
+popover modelbutton, popover modelbutton label, popover label,
+menu, .menu, menuitem, menuitem label, modelbutton.flat label {
+    color: #FFB454;
+    background-color: transparent;
+}
+popover modelbutton:hover, popover modelbutton:focus, menuitem:hover {
+    background-color: #1F1813;
+    color: #FFB454;
+}
+popover separator, menu separator { background-color: #33271A; }
