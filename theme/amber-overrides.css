@@ -1,4 +1,4 @@
-/* === Amber — panel / statusline overrides (appended to Mint-Y-Dark-Sand) === */
+/* === Amber - panel / statusline overrides (appended to Mint-Y-Dark-Sand) === */
 #panel {
     background-color: #16110D !important;
     border-top: 1px solid #FFB454 !important;
@@ -31,7 +31,7 @@
     font-family: "JetBrainsMono Nerd Font", monospace !important;
     padding: 4px 8px !important;
 }
-/* applet label on hover: amber (not white) — beats .applet-box:hover .applet-label via #panel */
+/* applet label on hover: amber (not white) - beats .applet-box:hover .applet-label via #panel */
 #panel .applet-label:hover, #panel .applet-label:checked,
 #panel .applet-box:hover .applet-label, #panel .applet-box:checked .applet-label,
 #panel .panel-button:hover .applet-label {
@@ -103,3 +103,10 @@
 .workspace-switcher .ws-box:selected, .workspace-switcher-box .ws-switcher:selected {
     border: 2px solid #FFB454 !important;
 }
+
+/* === volume / media OSD: amber border, square corners === */
+.osd-window, .media-keys-osd, .info-osd, .workspace-switch-osd {
+    border: 1px solid #FFB454 !important;
+    border-radius: 0 !important;
+}
+.media-keys-osd .level, .media-keys-osd .level-bar { border-radius: 0 !important; }
