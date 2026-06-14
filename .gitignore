@@ -1,0 +1,8 @@
+# OS & editors
+.DS_Store
+*~
+*.swp
+*.swo
+
+# personal dconf snapshots (local restore points; tools are versioned, not the dumps)
+cinnamon/snapshots/*.dconf
